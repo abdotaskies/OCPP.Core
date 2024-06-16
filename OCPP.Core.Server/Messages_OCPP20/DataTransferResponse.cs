@@ -48,20 +48,20 @@ namespace OCPP.Core.Server.Messages_OCPP20
         [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.1.0 (Newtonsoft.Json v9.0.0.0)")]
         public partial class DataTransferResponse
     {
-            [Newtonsoft.Json.JsonProperty("customData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+            [Newtonsoft.Json.JsonProperty("customData")]
             public CustomDataType CustomData { get; set; }
 
-            [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+            [Newtonsoft.Json.JsonProperty("status")]
             [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
             [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
             public DataTransferStatusEnumType Status { get; set; }
 
-            [Newtonsoft.Json.JsonProperty("statusInfo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+            [Newtonsoft.Json.JsonProperty("statusInfo")]
             public StatusInfoType StatusInfo { get; set; }
 
             /// <summary>Data without specified length or format, in response to request.
             /// </summary>
-            [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+            [Newtonsoft.Json.JsonProperty("data")]
             public object Data { get; set; }
         }
     }

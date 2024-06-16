@@ -51,28 +51,28 @@ namespace OCPP.Core.Server.Messages_OCPP20
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.1.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class StatusNotificationRequest
     {
-        [Newtonsoft.Json.JsonProperty("customData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("customData")]
         public CustomDataType CustomData { get; set; }
 
         /// <summary>The time for which the status is reported. If absent time of receipt of the message will be assumed.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("timestamp")]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTimeOffset Timestamp { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("connectorStatus", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("connectorStatus")]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ConnectorStatusEnumType ConnectorStatus { get; set; }
 
         /// <summary>The id of the EVSE to which the connector belongs for which the the status is reported.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("evseId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("evseId")]
         public int EvseId { get; set; }
 
         /// <summary>The id of the connector within the EVSE for which the status is reported.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("connectorId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("connectorId")]
         public int ConnectorId { get; set; }
     }
 }

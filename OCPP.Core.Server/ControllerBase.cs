@@ -104,7 +104,7 @@ namespace OCPP.Core.Server
 
             JsonTextReader reader = new JsonTextReader(new StringReader(msg.JsonPayload));
             JsonSerializer serializer = new JsonSerializer();
-
+            schemaJson = null;
             if (!string.IsNullOrEmpty(schemaJson))
             {
                 JSchemaValidatingReader validatingReader = new JSchemaValidatingReader(reader);

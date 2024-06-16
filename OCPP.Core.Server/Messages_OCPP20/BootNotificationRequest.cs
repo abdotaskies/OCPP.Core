@@ -25,7 +25,10 @@ namespace OCPP.Core.Server.Messages_OCPP20
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.1.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CustomDataType
     {
-        [Newtonsoft.Json.JsonProperty("vendorId", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("vendorId")]
+        // Regex starts with '[Newtonsoft.Json.JsonProperty("<value>") ignore remaing line' and replace it with '[Newtonsoft.Json.JsonProperty("<value>")]
+        // var regex = new Regex(@"\[Newtonsoft\.Json\.JsonProperty\(""(?<value>[^""]*)""\][^\n]*");
+        // var result = regex.Replace(input, "[Newtonsoft.Json.JsonProperty(\"$1\")]");
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(255)]
         public string VendorId { get; set; }
@@ -83,14 +86,14 @@ namespace OCPP.Core.Server.Messages_OCPP20
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.1.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ChargingStationType
     {
-        [Newtonsoft.Json.JsonProperty("customData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("customData")]
         public CustomDataType CustomData { get; set; }
 
         /// <summary>Device. Serial_ Number. Serial_ Number
         /// urn:x-oca:ocpp:uid:1:569324
         /// Vendor-specific device identifier.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("serialNumber", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("serialNumber")]
         [System.ComponentModel.DataAnnotations.StringLength(25)]
         public string SerialNumber { get; set; }
 
@@ -98,17 +101,17 @@ namespace OCPP.Core.Server.Messages_OCPP20
         /// urn:x-oca:ocpp:uid:1:569325
         /// Defines the model of the device.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("model", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("model")]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(20)]
         public string Model { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("modem", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("modem")]
         public ModemType Modem { get; set; }
 
         /// <summary>Identifies the vendor (not necessarily in a unique manner).
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("vendorName", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("vendorName")]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(50)]
         public string VendorName { get; set; }
@@ -116,7 +119,7 @@ namespace OCPP.Core.Server.Messages_OCPP20
         /// <summary>This contains the firmware version of the Charging Station.
         /// 
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("firmwareVersion", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("firmwareVersion")]
         [System.ComponentModel.DataAnnotations.StringLength(50)]
         public string FirmwareVersion { get; set; }
 
@@ -130,14 +133,14 @@ namespace OCPP.Core.Server.Messages_OCPP20
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.1.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ModemType
     {
-        [Newtonsoft.Json.JsonProperty("customData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("customData")]
         public CustomDataType CustomData { get; set; }
 
         /// <summary>Wireless_ Communication_ Module. ICCID. CI20_ Text
         /// urn:x-oca:ocpp:uid:1:569327
         /// This contains the ICCID of the modem’s SIM card.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("iccid", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("iccid")]
         [System.ComponentModel.DataAnnotations.StringLength(20)]
         public string Iccid { get; set; }
 
@@ -145,7 +148,7 @@ namespace OCPP.Core.Server.Messages_OCPP20
         /// urn:x-oca:ocpp:uid:1:569328
         /// This contains the IMSI of the modem’s SIM card.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("imsi", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("imsi")]
         [System.ComponentModel.DataAnnotations.StringLength(20)]
         public string Imsi { get; set; }
 
@@ -155,17 +158,18 @@ namespace OCPP.Core.Server.Messages_OCPP20
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.3.1.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BootNotificationRequest
     {
-        [Newtonsoft.Json.JsonProperty("customData", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("customData")]
         public CustomDataType CustomData { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("chargingStation", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("chargingStation")]
+        
         public ChargingStationType ChargingStation { get; set; } = new ChargingStationType();
 
-        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("reason")]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BootReasonEnumType Reason { get; set; }
+
 
 
     }
