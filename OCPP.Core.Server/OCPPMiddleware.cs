@@ -5,7 +5,6 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using OCPP.Core.Database;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -225,6 +224,8 @@ namespace OCPP.Core.Server
                                         // OCPP V1.6
                                         await Receive16(chargePointStatus, context, dbContext);
                                     }
+
+                                    await _next(context);
                                 }
                             }
                         }

@@ -84,7 +84,7 @@ namespace OCPP.Core.Server
             bool dbMigrate = Configuration.GetValue<bool>("AutoMigrateDB", true);
             if (dbMigrate)
             {
-                dbContext.Database.Migrate();
+                // dbContext.Database.Migrate();
             }
 
             // Set WebSocketsOptions

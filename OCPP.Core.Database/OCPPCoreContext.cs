@@ -42,9 +42,9 @@ namespace OCPP.Core.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ChargePoint>(entity =>
+            modelBuilder.Entity<OCPP.Core.Database.ChargePoint>(entity =>
             {
-                entity.ToTable("ChargePoint");
+                entity.ToTable("ChargePoints", schema: "Cpo");
 
                 entity.HasIndex(e => e.ChargePointId, "ChargePoint_Identifier")
                     .IsUnique();
@@ -62,8 +62,10 @@ namespace OCPP.Core.Database
                 entity.Property(e => e.ClientCertThumb).HasMaxLength(100);
             });
 
-            modelBuilder.Entity<ChargeTag>(entity =>
+            modelBuilder.Entity<OCPP.Core.Database.ChargeTag>(entity =>
             {
+                entity.ToTable("ChargeTags", schema: "Cpo");
+
                 entity.HasKey(e => e.TagId)
                     .HasName("PK_ChargeKeys");
 
@@ -74,8 +76,10 @@ namespace OCPP.Core.Database
                 entity.Property(e => e.TagName).HasMaxLength(200);
             });
 
-            modelBuilder.Entity<ConnectorStatus>(entity =>
+            modelBuilder.Entity<OCPP.Core.Database.ConnectorStatus>(entity =>
             {
+                entity.ToTable("ConnectorStatus", schema: "Cpo");
+
                 entity.HasKey(e => new { e.ChargePointId, e.ConnectorId });
 
                 entity.ToTable("ConnectorStatus");
@@ -87,8 +91,9 @@ namespace OCPP.Core.Database
                 entity.Property(e => e.LastStatus).HasMaxLength(100);
             });
 
-            modelBuilder.Entity<MessageLog>(entity =>
+            modelBuilder.Entity<OCPP.Core.Database.MessageLog>(entity =>
             {
+                entity.ToTable("MessageLogs", schema: "Cpo");
                 entity.HasKey(e => e.LogId);
 
                 entity.ToTable("MessageLog");
@@ -106,8 +111,9 @@ namespace OCPP.Core.Database
                     .HasMaxLength(100);
             });
 
-            modelBuilder.Entity<Transaction>(entity =>
+            modelBuilder.Entity<OCPP.Core.Database.Transaction>(entity =>
             {
+                entity.ToTable("Transactions", schema: "Cpo");
                 entity.Property(e => e.Uid).HasMaxLength(50);
 
                 entity.Property(e => e.ChargePointId)
@@ -130,8 +136,6 @@ namespace OCPP.Core.Database
 
                 entity.HasIndex(e => new { e.ChargePointId, e.ConnectorId });
             });
-
-            OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
